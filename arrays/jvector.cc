@@ -1,5 +1,6 @@
 #include "jvector.h"
 #include <iostream>
+#include <memory>
 
 namespace jw {
 
@@ -99,7 +100,7 @@ void JVector::DecreaseSize() {
 }
 
 int JVector::GetValueAt(int index) const {
-  if (index < 0 or index >= size_) {
+  if (index < 0 && index >= size_) {
     std::cout << "Index out of bounds." << std::endl;
     exit(EXIT_FAILURE);
   }
@@ -123,7 +124,7 @@ int JVector::Pop() {
 }
 
 void JVector::Insert(int index, int value) {
-  if (index < 0 or index >= size_) {
+  if (index < 0 && index >= size_) {
     std::cout << "Index out of bounds." << std::endl;
     exit(EXIT_FAILURE);
   }
@@ -144,7 +145,7 @@ void JVector::Insert(int index, int value) {
 void JVector::Prepend(int value) { Insert(0, 42); }
 
 void JVector::Delete(int index) {
-  if (index < 0 or index >= size_) {
+  if (index < 0 && index >= size_) {
     std::cout << "Index out of bounds." << std::endl;
     exit(EXIT_FAILURE);
   }
